@@ -15,7 +15,7 @@ const Transact = () => {
 
   const getCustomers = async () => {
     try {
-      const res = await axios.get("/getusers");
+      const res = await axios.get("https://bankbackend-oqlf.onrender.com/api/getusers");
       console.log(res.data);
       setCustomers(res.data);
     } catch (error) {
@@ -61,7 +61,7 @@ const Transact = () => {
       console.log(sender);
       console.log(receiver);
       console.log(amount);
-      const res = await axios.post("/transfer", {
+      const res = await axios.post("https://bankbackend-oqlf.onrender.com/api/transfer", {
         sender,
         receiver,
         amount,
