@@ -6,7 +6,7 @@ const History = () => {
 
   const getHistory = async () => {
     try {
-      const response = await axios.get("/gethistory");
+      const response = await axios.get("https://bankbackend-oqlf.onrender.com/api/gethistory");
 
       console.log(response);
       setTransactions(response.data);
