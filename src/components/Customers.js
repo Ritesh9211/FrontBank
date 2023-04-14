@@ -7,7 +7,7 @@ const Customers = () => {
   useEffect(() => {
     const getData = async () => {
       try{
-        const res = await axios.get("/getusers");
+        const res = await axios.get("https://bankbackend-oqlf.onrender.com/api/getusers");
         console.log("res: ", res);
         // console.log("res: ", rses.status);
         setCustomers(res.data);
