@@ -59,6 +59,11 @@ ul{
   padding-right: 0;
 }
 
+.loading{
+  color: white;
+  font-size: medium;
+}
+
 .navigation a li{
   display: table-cell;
   vertical-align: middle;

@@ -3,12 +3,13 @@ import axios from "axios";
 
 const Customers = () => {
   const [customers, setCustomers] = useState([]);
-
+  const [loading,setLoading] = useState(false);
   useEffect(() => {
     const getData = async () => {
       try{
         const res = await axios.get("https://bankbackend-oqlf.onrender.com/api/getusers");
         console.log("res: ", res);
+        if(res.data) setLoading(true);
         // console.log("res: ", rses.status);
         setCustomers(res.data);
       }catch(err){
@@ -35,14 +36,18 @@ const Customers = () => {
             </tr>
           </thead>
           <tbody>
-            {customers.map((customer,idx) => (
-              <tr key={customer._id}>
-                <td>{idx+1}</td>
-                <td>{customer.name}</td>
-                <td>{customer.email}</td>
-                <td>{customer.balance}</td>
-              </tr>
-            ))}
+            {
+              loading?<>{customers.map((customer,idx) => (
+                <tr key={customer._id}>
+                  <td>{idx+1}</td>
+                  <td>{customer.name}</td>
+                  <td>{customer.email}</td>
+                  <td>{customer.balance}</td>
+                </tr>
+              ))}</>
+              :<div className="loading">Loading Please Wait........</div>
+            }
+            
           </tbody>
         </table>
       </div>
